@@ -9,13 +9,13 @@
 import UIKit
 
 class MainViewModel: NSObject {
-    let apiService: ApiServiceProtocol
     
+    let apiService: ApiServiceProtocol
     fileprivate var albums = [Album]()
     
     fileprivate var albumCellViewModels = [AlbumCellViewModel]() {
         didSet {
-            //reload tableview
+            //reload tableview when data fetch is finished
             tableViewReloadClosure?()
         }
     }
@@ -60,26 +60,12 @@ class MainViewModel: NSObject {
     }
     
     func getAlbumCellViewModel(_ indexPath: IndexPath) -> AlbumCellViewModel{
-        return self.albumCellViewModels[indexPath.row]
+        let albumCellViewModel = self.albumCellViewModels[indexPath.row]
+        albumCellViewModel.indexPath = indexPath
+        return albumCellViewModel
     }
     
-    fileprivate func printOutResults(_ albumArray: [Album]){
-        for album in albumArray{
-            print("album: " + album.albumName)
-            print("artist: " + album.artistName)
-            print("album art: " + album.albumArt)
-            var albumGenre = ""
-            for genre in album.genres{
-                if albumGenre.count > 0{
-                    albumGenre += ", \(genre.name)"
-                }else{
-                    albumGenre += genre.name
-                }
-            }
-            print("genre: " + albumGenre)
-            print("release date: " + album.releaseDate)
-            print("copyright: " + album.copyright)
-            print("")
-        }
+    func getAlbum(_ indexPath: IndexPath) -> Album{
+        return albums[indexPath.row]
     }
 }

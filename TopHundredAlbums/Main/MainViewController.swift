@@ -30,9 +30,12 @@ class MainViewController: UIViewController {
     }
     
     fileprivate func setupTableview(){
+        navigationController?.navigationBar.topItem?.title = "Top 100 Albums"
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(AlbumCell.self, forCellReuseIdentifier: AlbumCell.identifier)
+        tableView.separatorStyle = .none
+        
         view.backgroundColor = UIColor.white
         view.addSubview(tableView)
         
@@ -59,7 +62,19 @@ class MainViewController: UIViewController {
         //start fetching data
         viewModel.fetch()
     }
-
+    
+    fileprivate func resizeAlbumNameHeight(_ cell: AlbumCell, _ indexPath: IndexPath){
+        //resize albumName height by number of lines in text
+        cell.albumNameHeightConstraint?.isActive = false
+        if cell.albumName.calculateMaxLines() > 1{
+            //if albunName label has 2 lines of text
+            cell.albumNameHeightConstraint = cell.albumName.heightAnchor.constraint(equalToConstant: cell.frame.size.height * 0.4)
+        }else{
+            //if albunName label has 1 line of text
+            cell.albumNameHeightConstraint = cell.albumName.heightAnchor.constraint(equalToConstant: cell.frame.size.height * 0.2)
+        }
+        cell.albumNameHeightConstraint?.isActive = true
+    }
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource{
@@ -69,13 +84,25 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: AlbumCell.identifier, for: indexPath) as? AlbumCell else {
-            fatalError("cell error")
+            print("cell deque error")
+            return UITableViewCell()
         }
         let vm = viewModel.getAlbumCellViewModel(indexPath)
-        cell.textLabel?.text = "\(vm.albumName)"
+        cell.selectionStyle = .none
+        cell.viewModel = vm
+        resizeAlbumNameHeight(cell, indexPath)
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return tableView.frame.size.height/8
+    }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let album = viewModel.getAlbum(indexPath)
+        let albumDetailViewController = AlbumDetailViewController()
+        albumDetailViewController.viewModel = AlbumDetailViewModel(album)
+        navigationController?.pushViewController(albumDetailViewController, animated: true)
+    }
 }
 

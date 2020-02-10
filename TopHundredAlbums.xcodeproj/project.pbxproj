@@ -19,6 +19,19 @@
 		C0902B8423EEBBE00022BC3F /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0902B8323EEBBE00022BC3F /* MainViewModel.swift */; };
 		C0902B8623EEBCA30022BC3F /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0902B8523EEBCA30022BC3F /* ApiService.swift */; };
 		C0902B8823EEC0460022BC3F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0902B8723EEC0460022BC3F /* Constants.swift */; };
+		C0DA242223EFF78C004F1A5A /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0DA241E23EFF619004F1A5A /* Lato-Black.ttf */; };
+		C0DA242323EFF78C004F1A5A /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0DA241B23EFF619004F1A5A /* Lato-BlackItalic.ttf */; };
+		C0DA242423EFF78C004F1A5A /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0DA241F23EFF619004F1A5A /* Lato-Bold.ttf */; };
+		C0DA242523EFF78C004F1A5A /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0DA241C23EFF619004F1A5A /* Lato-BoldItalic.ttf */; };
+		C0DA242623EFF78C004F1A5A /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0DA241D23EFF619004F1A5A /* Lato-Italic.ttf */; };
+		C0DA242723EFF78C004F1A5A /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0DA241823EFF618004F1A5A /* Lato-Light.ttf */; };
+		C0DA242823EFF78C004F1A5A /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0DA242023EFF619004F1A5A /* Lato-LightItalic.ttf */; };
+		C0DA242923EFF78C004F1A5A /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0DA241923EFF618004F1A5A /* Lato-Regular.ttf */; };
+		C0DA242A23EFF78C004F1A5A /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0DA242123EFF619004F1A5A /* Lato-Thin.ttf */; };
+		C0DA242B23EFF78C004F1A5A /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0DA241A23EFF619004F1A5A /* Lato-ThinItalic.ttf */; };
+		C0DA242D23F01E24004F1A5A /* ApiServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA242C23F01E24004F1A5A /* ApiServiceTests.swift */; };
+		C0DA242F23F02DDA004F1A5A /* AlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA242E23F02DDA004F1A5A /* AlbumDetailViewController.swift */; };
+		C0DA243123F02EED004F1A5A /* AlbumDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA243023F02EED004F1A5A /* AlbumDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +70,19 @@
 		C0902B8323EEBBE00022BC3F /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		C0902B8523EEBCA30022BC3F /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		C0902B8723EEC0460022BC3F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C0DA241823EFF618004F1A5A /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		C0DA241923EFF618004F1A5A /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		C0DA241A23EFF619004F1A5A /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
+		C0DA241B23EFF619004F1A5A /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
+		C0DA241C23EFF619004F1A5A /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
+		C0DA241D23EFF619004F1A5A /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
+		C0DA241E23EFF619004F1A5A /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		C0DA241F23EFF619004F1A5A /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		C0DA242023EFF619004F1A5A /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
+		C0DA242123EFF619004F1A5A /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
+		C0DA242C23F01E24004F1A5A /* ApiServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceTests.swift; sourceTree = "<group>"; };
+		C0DA242E23F02DDA004F1A5A /* AlbumDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailViewController.swift; sourceTree = "<group>"; };
+		C0DA243023F02EED004F1A5A /* AlbumDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,14 +133,14 @@
 		C0902B5223EEB8990022BC3F /* TopHundredAlbums */ = {
 			isa = PBXGroup;
 			children = (
+				C0DA243523F031A4004F1A5A /* AlbumCell */,
+				C0DA243423F03188004F1A5A /* AlbumDetail */,
+				C0DA243323F0316E004F1A5A /* Main */,
+				C0DA243223F0315F004F1A5A /* Service */,
+				C0DA241723EFF601004F1A5A /* fonts */,
 				C0902B8723EEC0460022BC3F /* Constants.swift */,
 				C0902B5323EEB8990022BC3F /* AppDelegate.swift */,
 				C0902B5523EEB8990022BC3F /* SceneDelegate.swift */,
-				C0902B8523EEBCA30022BC3F /* ApiService.swift */,
-				C0902B5723EEB8990022BC3F /* MainViewController.swift */,
-				C0902B8323EEBBE00022BC3F /* MainViewModel.swift */,
-				C01A59B323EECB43001D5F7D /* AlbumCell.swift */,
-				C01A59B523EECC59001D5F7D /* AlbumCellViewModel.swift */,
 				C0902B5C23EEB89A0022BC3F /* Assets.xcassets */,
 				C0902B5E23EEB89A0022BC3F /* LaunchScreen.storyboard */,
 				C0902B6123EEB89A0022BC3F /* Info.plist */,
@@ -125,6 +151,7 @@
 		C0902B6923EEB89A0022BC3F /* TopHundredAlbumsTests */ = {
 			isa = PBXGroup;
 			children = (
+				C0DA242C23F01E24004F1A5A /* ApiServiceTests.swift */,
 				C0902B6A23EEB89A0022BC3F /* TopHundredAlbumsTests.swift */,
 				C0902B6C23EEB89A0022BC3F /* Info.plist */,
 			);
@@ -138,6 +165,58 @@
 				C0902B7723EEB89A0022BC3F /* Info.plist */,
 			);
 			path = TopHundredAlbumsUITests;
+			sourceTree = "<group>";
+		};
+		C0DA241723EFF601004F1A5A /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C0DA241E23EFF619004F1A5A /* Lato-Black.ttf */,
+				C0DA241B23EFF619004F1A5A /* Lato-BlackItalic.ttf */,
+				C0DA241F23EFF619004F1A5A /* Lato-Bold.ttf */,
+				C0DA241C23EFF619004F1A5A /* Lato-BoldItalic.ttf */,
+				C0DA241D23EFF619004F1A5A /* Lato-Italic.ttf */,
+				C0DA241823EFF618004F1A5A /* Lato-Light.ttf */,
+				C0DA242023EFF619004F1A5A /* Lato-LightItalic.ttf */,
+				C0DA241923EFF618004F1A5A /* Lato-Regular.ttf */,
+				C0DA242123EFF619004F1A5A /* Lato-Thin.ttf */,
+				C0DA241A23EFF619004F1A5A /* Lato-ThinItalic.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		C0DA243223F0315F004F1A5A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C0902B8523EEBCA30022BC3F /* ApiService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C0DA243323F0316E004F1A5A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C0902B5723EEB8990022BC3F /* MainViewController.swift */,
+				C0902B8323EEBBE00022BC3F /* MainViewModel.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		C0DA243423F03188004F1A5A /* AlbumDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C0DA242E23F02DDA004F1A5A /* AlbumDetailViewController.swift */,
+				C0DA243023F02EED004F1A5A /* AlbumDetailViewModel.swift */,
+			);
+			path = AlbumDetail;
+			sourceTree = "<group>";
+		};
+		C0DA243523F031A4004F1A5A /* AlbumCell */ = {
+			isa = PBXGroup;
+			children = (
+				C01A59B323EECB43001D5F7D /* AlbumCell.swift */,
+				C01A59B523EECC59001D5F7D /* AlbumCellViewModel.swift */,
+			);
+			path = AlbumCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +323,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0DA242223EFF78C004F1A5A /* Lato-Black.ttf in Resources */,
+				C0DA242323EFF78C004F1A5A /* Lato-BlackItalic.ttf in Resources */,
+				C0DA242423EFF78C004F1A5A /* Lato-Bold.ttf in Resources */,
+				C0DA242523EFF78C004F1A5A /* Lato-BoldItalic.ttf in Resources */,
+				C0DA242623EFF78C004F1A5A /* Lato-Italic.ttf in Resources */,
+				C0DA242723EFF78C004F1A5A /* Lato-Light.ttf in Resources */,
+				C0DA242823EFF78C004F1A5A /* Lato-LightItalic.ttf in Resources */,
+				C0DA242923EFF78C004F1A5A /* Lato-Regular.ttf in Resources */,
+				C0DA242A23EFF78C004F1A5A /* Lato-Thin.ttf in Resources */,
+				C0DA242B23EFF78C004F1A5A /* Lato-ThinItalic.ttf in Resources */,
 				C0902B6023EEB89A0022BC3F /* LaunchScreen.storyboard in Resources */,
 				C0902B5D23EEB89A0022BC3F /* Assets.xcassets in Resources */,
 			);
@@ -275,9 +364,11 @@
 				C0902B8623EEBCA30022BC3F /* ApiService.swift in Sources */,
 				C0902B5423EEB8990022BC3F /* AppDelegate.swift in Sources */,
 				C01A59B423EECB43001D5F7D /* AlbumCell.swift in Sources */,
+				C0DA242F23F02DDA004F1A5A /* AlbumDetailViewController.swift in Sources */,
 				C0902B5623EEB8990022BC3F /* SceneDelegate.swift in Sources */,
 				C0902B8423EEBBE00022BC3F /* MainViewModel.swift in Sources */,
 				C0902B8823EEC0460022BC3F /* Constants.swift in Sources */,
+				C0DA243123F02EED004F1A5A /* AlbumDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +376,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0DA242D23F01E24004F1A5A /* ApiServiceTests.swift in Sources */,
 				C0902B6B23EEB89A0022BC3F /* TopHundredAlbumsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
