@@ -15,6 +15,7 @@ class AlbumDetailViewModel: NSObject {
     let genres: [Genre]
     let releaseDate: String
     let copyright: String
+    let url:String
     
     init(_ album: Album) {
         albumName = album.albumName
@@ -23,5 +24,6 @@ class AlbumDetailViewModel: NSObject {
         genres = album.genres
         releaseDate = album.releaseDate
         copyright = album.copyright
+        url = album.url
     }
 }

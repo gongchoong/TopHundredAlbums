@@ -23,7 +23,7 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
         setupTableview()
         
         initViewModel()
@@ -56,24 +56,34 @@ class MainViewController: UIViewController {
         }
         
         viewModel.showErrorMessageClosure = { [weak self] () in
-            print(self?.viewModel.errorMessage)
+            guard let errorMessage = self?.viewModel.errorMessage else {return}
+            DispatchQueue.main.async {
+                self?.showAlert(errorMessage)
+            }
         }
         
         //start fetching data
         viewModel.fetch()
     }
     
-    fileprivate func resizeAlbumNameHeight(_ cell: AlbumCell, _ indexPath: IndexPath){
+    fileprivate func resizeAlbumNameHeight(_ cell: AlbumCell){
         //resize albumName height by number of lines in text
         cell.albumNameHeightConstraint?.isActive = false
-        if cell.albumName.calculateMaxLines() > 1{
-            //if albunName label has 2 lines of text
-            cell.albumNameHeightConstraint = cell.albumName.heightAnchor.constraint(equalToConstant: cell.frame.size.height * 0.4)
+        if cell.albumNameLabel.calculateMaxLines() > 1{
+            //if albunName label has more than 1 lines of text
+            cell.albumNameHeightConstraint = cell.albumNameLabel.heightAnchor.constraint(equalToConstant: cell.frame.size.height * 0.4)
         }else{
             //if albunName label has 1 line of text
-            cell.albumNameHeightConstraint = cell.albumName.heightAnchor.constraint(equalToConstant: cell.frame.size.height * 0.2)
+            cell.albumNameHeightConstraint = cell.albumNameLabel.heightAnchor.constraint(equalToConstant: cell.frame.size.height * 0.2)
         }
         cell.albumNameHeightConstraint?.isActive = true
+    }
+    
+    fileprivate func showAlert(_ message: String){
+        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
     }
 }
 
@@ -90,11 +100,12 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
         let vm = viewModel.getAlbumCellViewModel(indexPath)
         cell.selectionStyle = .none
         cell.viewModel = vm
-        resizeAlbumNameHeight(cell, indexPath)
+        resizeAlbumNameHeight(cell)
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        //present 8 cells per screen
         return tableView.frame.size.height/8
     }
     

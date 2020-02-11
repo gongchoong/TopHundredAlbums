@@ -15,7 +15,6 @@ class MainViewModel: NSObject {
     
     fileprivate var albumCellViewModels = [AlbumCellViewModel]() {
         didSet {
-            //reload tableview when data fetch is finished
             tableViewReloadClosure?()
         }
     }
@@ -41,6 +40,7 @@ class MainViewModel: NSObject {
     func fetch(){
         apiService.fetchTopHundredAlbums { (successful, albums, error) in
             if let err = error{
+                //present alert with error message
                 self.errorMessage = err.localizedDescription
             }else{
                  self.process(albums)
@@ -56,6 +56,7 @@ class MainViewModel: NSObject {
         for album in albums{
             albumCellVms.append(AlbumCellViewModel(album))
         }
+        //processing is completed, ready to reload tableview
         self.albumCellViewModels = albumCellVms
     }
     

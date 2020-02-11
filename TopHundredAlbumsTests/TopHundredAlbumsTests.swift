@@ -145,18 +145,21 @@ class MockApiService: ApiServiceProtocol {
         completeClosure = completion
     }
     
+    //mimic data fetch success
     func successful(){
         completeClosure?(true, albums, nil)
     }
     
+    //mimic data fetch failure
     func fail(_ error: ApiServiceError?){
         completeClosure?(false, albums, error)
     }
 }
 
 class AlbumDataGenerator {
+    //download album data then provide it as array for testing
     func generateAlbum(_ completion: @escaping([Album])->()){
-        guard let url = URL(string: RSSURL) else {return}
+        guard let url = URL(string: Constants.RSSURL) else {return}
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard let dataResponse = data else {
                 print("download error")

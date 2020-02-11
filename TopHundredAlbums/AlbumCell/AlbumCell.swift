@@ -23,7 +23,7 @@ class AlbumCell: UITableViewCell {
         return imageView
     }()
     
-    let albumName: UILabel = {
+    let albumNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "Lato-Bold", size: 14)
@@ -32,7 +32,7 @@ class AlbumCell: UITableViewCell {
         return label
     }()
     
-    let artistName: UILabel = {
+    let artistNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "Lato-Bold", size: 13)
@@ -45,11 +45,12 @@ class AlbumCell: UITableViewCell {
     
     var viewModel: AlbumCellViewModel? {
         didSet{
+            guard let albumArt = viewModel?.albumArt, let albumName = viewModel?.albumName, let artistName = viewModel?.artistName else {return}
             albumImageView.image = nil
-            albumImageView.setImage(albumArt: viewModel?.albumArt)
+            albumImageView.setImage(albumArt: albumArt)
             
-            albumName.text = viewModel?.albumName
-            artistName.text = viewModel?.artistName
+            albumNameLabel.text = albumName
+            artistNameLabel.text = artistName
         }
     }
 
@@ -60,8 +61,8 @@ class AlbumCell: UITableViewCell {
     
     fileprivate func setupLayout(){
         addSubview(albumImageView)
-        addSubview(albumName)
-        addSubview(artistName)
+        addSubview(albumNameLabel)
+        addSubview(artistNameLabel)
         
         NSLayoutConstraint.activate([
             albumImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
@@ -69,14 +70,14 @@ class AlbumCell: UITableViewCell {
             albumImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.8),
             albumImageView.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.8),
             
-            albumName.bottomAnchor.constraint(equalTo: albumImageView.centerYAnchor),
-            albumName.leftAnchor.constraint(equalTo: albumImageView.rightAnchor, constant: frame.size.height * 0.3),
-            albumName.rightAnchor.constraint(equalTo: rightAnchor, constant: -frame.size.height * 0.3),
+            albumNameLabel.bottomAnchor.constraint(equalTo: albumImageView.centerYAnchor),
+            albumNameLabel.leftAnchor.constraint(equalTo: albumImageView.rightAnchor, constant: frame.size.height * 0.3),
+            albumNameLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -frame.size.height * 0.3),
             
-            artistName.topAnchor.constraint(equalTo: albumName.bottomAnchor),
-            artistName.leftAnchor.constraint(equalTo: albumName.leftAnchor),
-            artistName.rightAnchor.constraint(equalTo: albumName.rightAnchor),
-            artistName.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2)
+            artistNameLabel.topAnchor.constraint(equalTo: albumNameLabel.bottomAnchor),
+            artistNameLabel.leftAnchor.constraint(equalTo: albumNameLabel.leftAnchor),
+            artistNameLabel.rightAnchor.constraint(equalTo: albumNameLabel.rightAnchor),
+            artistNameLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2)
         ])
     }
     
@@ -96,11 +97,13 @@ extension UIImageView {
         guard let albumArtURL = albumArt else {return}
         guard let url = URL(string: albumArtURL) else {return}
         
+        //if image exists in cache
         if let cacheImage = imageCache.object(forKey: albumArtURL as AnyObject) as? UIImage{
             self.image = cacheImage
             return
         }
         
+        //if image does not exist in cache, download image then write it to cache
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let err = error{
                 print(err.localizedDescription)
@@ -109,6 +112,7 @@ extension UIImageView {
             
             guard let dataResponse = data else {return}
             guard let image = UIImage(data: dataResponse) else {return}
+            //write to cache
             imageCache.setObject(image, forKey: albumArtURL as AnyObject)
             
             DispatchQueue.main.async {

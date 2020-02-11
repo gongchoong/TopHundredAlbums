@@ -18,16 +18,18 @@ protocol ApiServiceProtocol {
 
 class ApiService: ApiServiceProtocol {
     func fetchTopHundredAlbums(_ completion: @escaping (_ fetchSuccess: Bool, _ albums: [Album], _ error: ApiServiceError?) -> ()) {
-        guard let url = URL(string: RSSURL) else {return}
+        guard let url = URL(string: Constants.RSSURL) else {return}
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard let dataResponse = data, error == nil else {
-                return
+            guard let dataResponse = data else {return}
+            
+            if error != nil{
+                completion(false, [Album](), ApiServiceError.dataFetchError)
             }
+            
             do {
                 let obj = try JSONDecoder().decode(TopHundredAlbums.self, from: dataResponse)
                 let albums = obj.feed.albums
-                //printOutResults(albums)
                 completion(true, albums, nil)
             }catch let error {
                 print(error.localizedDescription)
@@ -58,6 +60,7 @@ struct Album: Codable {
     let genres: [Genre]
     let releaseDate: String
     let copyright: String
+    let url: String
     
     enum CodingKeys: String, CodingKey {
         case albumName = "name"
@@ -66,6 +69,7 @@ struct Album: Codable {
         case genres
         case releaseDate
         case copyright
+        case url
     }
 }
 
