@@ -41,7 +41,7 @@ class MainViewModel: NSObject {
         apiService.fetchTopHundredAlbums { (successful, albums, error) in
             if let err = error{
                 //present alert with error message
-                self.errorMessage = err.localizedDescription
+                self.errorMessage = "\(err)"
             }else{
                  self.process(albums)
             }

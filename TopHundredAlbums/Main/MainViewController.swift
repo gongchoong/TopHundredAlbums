@@ -71,7 +71,7 @@ class MainViewController: UIViewController {
         cell.albumNameHeightConstraint?.isActive = false
         if cell.albumNameLabel.calculateMaxLines() > 1{
             //if albunName label has more than 1 lines of text
-            cell.albumNameHeightConstraint = cell.albumNameLabel.heightAnchor.constraint(equalToConstant: cell.frame.size.height * 0.4)
+            cell.albumNameHeightConstraint = cell.albumNameLabel.heightAnchor.constraint(lessThanOrEqualToConstant: cell.frame.size.height * 0.4)
         }else{
             //if albunName label has 1 line of text
             cell.albumNameHeightConstraint = cell.albumNameLabel.heightAnchor.constraint(equalToConstant: cell.frame.size.height * 0.2)

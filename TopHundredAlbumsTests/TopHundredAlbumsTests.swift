@@ -45,14 +45,14 @@ class TopHundredAlbumsTests: XCTestCase {
         //test when MainViewModel.fetch failed
         guard let sut = sut, let mockApi = mockApiService else {return}
         //Given
-        let error = ApiServiceError.dataFetchError
+        let error = ApiServiceError.DataFetchError
         
         //When
         sut.fetch()
         mockApi.fail(error)
         
         //Assert
-        XCTAssertEqual(error.localizedDescription, sut.errorMessage)
+        XCTAssertEqual("\(error)", sut.errorMessage)
     }
     
     func testIfTableviewIsRefreshed(){

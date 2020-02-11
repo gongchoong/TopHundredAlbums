@@ -9,7 +9,8 @@
 import UIKit
 
 enum ApiServiceError: String, Error {
-    case dataFetchError = "data fetch error"
+    case DataFetchError = "Data fetch error"
+    case JsonDecodeError = "Json Decoding error"
 }
 
 protocol ApiServiceProtocol {
@@ -24,7 +25,7 @@ class ApiService: ApiServiceProtocol {
             guard let dataResponse = data else {return}
             
             if error != nil{
-                completion(false, [Album](), ApiServiceError.dataFetchError)
+                completion(false, [Album](), ApiServiceError.DataFetchError)
             }
             
             do {
@@ -33,7 +34,7 @@ class ApiService: ApiServiceProtocol {
                 completion(true, albums, nil)
             }catch let error {
                 print(error.localizedDescription)
-                completion(true, [Album](), ApiServiceError.dataFetchError)
+                completion(true, [Album](), ApiServiceError.JsonDecodeError)
             }
             
         }

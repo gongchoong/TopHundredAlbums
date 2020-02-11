@@ -77,7 +77,7 @@ class AlbumCell: UITableViewCell {
             artistNameLabel.topAnchor.constraint(equalTo: albumNameLabel.bottomAnchor),
             artistNameLabel.leftAnchor.constraint(equalTo: albumNameLabel.leftAnchor),
             artistNameLabel.rightAnchor.constraint(equalTo: albumNameLabel.rightAnchor),
-            artistNameLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2)
+            artistNameLabel.heightAnchor.constraint(lessThanOrEqualTo: heightAnchor, multiplier: 0.2)
         ])
     }
     
@@ -130,7 +130,7 @@ extension UILabel {
         let maxSize = CGSize(width: frame.size.width, height: CGFloat(Float.infinity))
         let charSize = font.lineHeight
         let text = (self.text ?? "") as NSString
-        let textSize = text.boundingRect(with: maxSize, options: .usesLineFragmentOrigin, attributes: [.font: font], context: nil)
+        let textSize = text.boundingRect(with: maxSize, options: .usesLineFragmentOrigin, attributes: [.font: font as Any], context: nil)
         let linesRoundedUp = Int(ceil(textSize.height/charSize))
         return linesRoundedUp
     }
