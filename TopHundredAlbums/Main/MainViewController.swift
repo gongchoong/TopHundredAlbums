@@ -6,7 +6,7 @@
 //  Copyright © 2020 Woohyun David Lee. All rights reserved.
 //
 
-//test for commit
+//test for commit 2
 import UIKit
 
 class MainViewController: UIViewController {
